@@ -77,4 +77,3 @@ for line in f:
     for e,d in zip(encabezados,fila):
         arbol[e]=d
     arboles.append(arbol)
-    
