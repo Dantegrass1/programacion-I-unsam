@@ -17,8 +17,9 @@ def leer_precios(archivo):
             diccionariof[row[0]] = float(row[1])
             
     print(diccionariof)
+    return diccionariof
 
-leer_precios('/mnt/d/programacion-I-unsam/codigo/data/precios.csv')
+diccionariof = leer_precios('/mnt/d/programacion-I-unsam/codigo/data/precios.csv')
 
 print('---------------------')
 
@@ -46,10 +47,19 @@ def leer_camion(archivo):
             
             diccionarioc[row[0]] = (int(row[1]), float(row[2]))
     print(diccionarioc)
-leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion.csv')
+    return total_camion
+    return diccionarioc
+total_camion = leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion.csv')
+diccionarioc = leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion.csv')
+
 
 print('-----------------')
 
-from informe import total_camion
-
 print(total_camion)
+
+recaudacion = 0
+for fruta in diccionarioc:
+    cantidad = diccionarioc[fruta][0]
+    precio_venta = diccionariof[fruta]
+    recaudacion += cantidad * precio_venta
+print(recaudacion)
