@@ -1,65 +1,46 @@
 import csv
 
 def leer_precios(archivo):
-    
     diccionariof = {}
-    
     with open(archivo) as f:
-        
         rr = csv.reader(f)
-        
         for row in rr:
-            
             if not row:
-                
                 continue
-            
             diccionariof[row[0]] = float(row[1])
-            
-    print(diccionariof)
     return diccionariof
 
-diccionariof = leer_precios('/mnt/d/programacion-I-unsam/codigo/data/precios.csv')
-
-print('---------------------')
-
 def leer_camion(archivo):
-
     diccionarioc = {}
-    
     with open(archivo) as f:
-        
         rr = csv.reader(f)
-        
-        headers = next(rr) #Salteo la primera fila.
-        
+        headers = next(rr)
         total_camion = 0
-        
         for row in rr:
-            
             if not row:
-                
                 continue
-            
-            rows = int(row[1]) * float(row[2]) #Multiplica el segundo y tercer dato de la fila entre ellos, calculando el total pagado por ese cajon
-            
-            total_camion = total_camion + rows #Hace un total, para acumularlo por cada cajon
-            
-            diccionarioc[row[0]] = (int(row[1]), float(row[2]))
-    print(diccionarioc)
-    return total_camion
-    return diccionarioc
-total_camion = leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion.csv')
-diccionarioc = leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion.csv')
+            total_camion += int(row[1]) * float(row[2])
+            if row[0] in diccionarioc:
+                diccionarioc[row[0]] = (diccionarioc[row[0]][0] + int(row[1]), float(row[2]))
+            else:
+                diccionarioc[row[0]] = (int(row[1]), float(row[2]))
+    return total_camion, diccionarioc
 
-
-print('-----------------')
-
-print(total_camion)
+diccionariof = leer_precios('/mnt/d/programacion-I-unsam/codigo/data/precios.csv')
+total_camion, diccionarioc = leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion.csv')
 
 recaudacion = 0
 for fruta in diccionarioc:
     cantidad = diccionarioc[fruta][0]
     precio_venta = diccionariof[fruta]
     recaudacion += cantidad * precio_venta
-print(recaudacion)
+
+ganancia = recaudacion - total_camion
+print(f"Costo del camión: {total_camion}")
+print(f"Recaudación: {recaudacion}")
+print(f"Ganancia: {ganancia}")
+
+
+print(diccionarioc)
+
+print(diccionariof)
