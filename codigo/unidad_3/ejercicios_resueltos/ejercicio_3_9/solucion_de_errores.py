@@ -16,7 +16,7 @@ def tiene_a(expresion):
 #tiene_a('La novela 1984 de George Orwell')
 #print(i)
 
-#Si, anda bien en todos los casos de prueba.
+#El error de semantica aca se debe a que el programa busca devolver el valor de i, pero no lo hace.
 
 #3.6
 '''
@@ -56,12 +56,40 @@ tiene_uno(1984)
 
 
 #3.8
-
+'''
 def suma(a,b):
     c = a + b
-    return c
+    #return c
 
 a = 2
 b = 3
 c = suma(a,b)
-print(f"La suma da {a} + {b} = {c}")
+'''
+#print(f"La suma da {a} + {b} = {c}")
+
+#El error aca tambien es de semantica, ya que el programa funciona, pero no de forma correcta. Devuelve NONE como C, ya que dentro de la funcion, la variable no se retorna(return), por lo que queda "atrapada" dentro de suma.
+
+#3.9
+
+import csv
+from pprint import pprint
+
+def leer_camion(nombre_archivo):
+    camion=[]
+    registro={}
+    with open(nombre_archivo,"rt") as f:
+        filas = csv.reader(f)
+        encabezado = next(filas)
+        for fila in filas:
+            registro[encabezado[0]] = fila[0]
+            registro[encabezado[1]] = int(fila[1])
+            registro[encabezado[2]] = float(fila[2])
+            camion = [(registro)] #ACA ESTA EL PROBLEMA
+    return camion
+
+camion = leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion.csv')
+pprint(camion)
+
+#El problema es que solo guarda la ultima fila dentro del diccionario.
+
+#Solucion/Debuggeo: 
