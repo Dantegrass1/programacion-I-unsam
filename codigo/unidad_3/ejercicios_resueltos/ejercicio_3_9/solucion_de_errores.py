@@ -76,15 +76,16 @@ from pprint import pprint
 
 def leer_camion(nombre_archivo):
     camion=[]
-    registro={}
+    #registro={} #ESTO ESTA MAL UBICADO(PROBLEMA)
     with open(nombre_archivo,"rt") as f:
         filas = csv.reader(f)
         encabezado = next(filas)
         for fila in filas:
+            registro={} #Asi se soluciona. AHORA HACE UN DICCIONARIO POR CADA FILA
             registro[encabezado[0]] = fila[0]
             registro[encabezado[1]] = int(fila[1])
             registro[encabezado[2]] = float(fila[2])
-            camion = [(registro)] #ACA ESTA EL PROBLEMA
+            camion.append(registro) #ACA ESTA EL PROBLEMA, YA QUE ANTES HACIA UN MISMO DICCIONARIO, DONDE LOOPEABA Y AGREGABA LA ULTIMA FILA (CUANDO TERMINABA DE RECORRER EL DATASET, POR LO QUE AGREGABA CADA FILA AL DICCIONARIO, PERO SIEMPRE SE ACTUALIZABA CON LA ULTIMA,Y LUEGO SE GUARDABA EN CAMION)
     return camion
 
 camion = leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion.csv')
