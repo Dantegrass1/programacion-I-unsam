@@ -39,8 +39,3 @@ ganancia = recaudacion - total_camion
 print(f"Costo del camión: {total_camion}")
 print(f"Recaudación: {recaudacion}")
 print(f"Ganancia: {ganancia}")
-
-
-print(diccionarioc)
-
-print(diccionariof)
