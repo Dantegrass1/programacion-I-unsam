@@ -92,5 +92,3 @@ camion = leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion.csv')
 pprint(camion)
 
 #El problema es que solo guarda la ultima fila dentro del diccionario.
-
-#Solucion/Debuggeo: 
