@@ -35,7 +35,7 @@ tiene_a('La novela 1984 de George Orwell')
 #En este programa anda mal en ambos casos de prueba, ya que el programa esta mal escrito(error de sintaxis.)
 
 #3.7
-'''
+
 def tiene_uno(expresion):
     n = len(expresion)
     i = 0
@@ -56,6 +56,7 @@ tiene_uno(1984)
 
 
 #3.8
+
 '''
 def suma(a,b):
     c = a + b
@@ -64,10 +65,11 @@ def suma(a,b):
 a = 2
 b = 3
 c = suma(a,b)
-'''
+
 #print(f"La suma da {a} + {b} = {c}")
 
 #El error aca tambien es de semantica, ya que el programa funciona, pero no de forma correcta. Devuelve NONE como C, ya que dentro de la funcion, la variable no se retorna(return), por lo que queda "atrapada" dentro de suma.
+
 
 #3.9
 
