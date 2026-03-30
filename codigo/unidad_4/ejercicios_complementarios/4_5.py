@@ -40,4 +40,3 @@ for nombre, n_cajones, precio in camion:
 
 print(total_cajones['Naranja'])
 
-
