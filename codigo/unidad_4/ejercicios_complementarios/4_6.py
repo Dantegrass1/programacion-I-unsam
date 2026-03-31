@@ -26,7 +26,9 @@ def leer_camion(nombre_archivo):
 camion = leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion.csv')
 
 tenencias = Counter()
+
 for s in camion:
+    
     tenencias[s['nombre']] += s['cajones']
 
 print(tenencias)
