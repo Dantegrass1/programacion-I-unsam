@@ -20,7 +20,9 @@ def leer_camion(nombre_archivo):
                 camion.append(lote) # Lo agregamos a nuestra lista
             except ValueError:
                 print(f"Fila {n_fila}: No se pudo procesar los datos de {fila}")
+            print('-------------------------------------')
             print(lote)
+            print('-------------------------------------')
     return camion # Devolvemos la lista de diccionarios
 
 camion = leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion.csv')
@@ -30,5 +32,20 @@ tenencias = Counter()
 for s in camion:
     
     tenencias[s['nombre']] += s['cajones']
-
+print('-------------------------------------')
 print(tenencias)
+print('-------------------------------------')
+print(tenencias.most_common(3))
+print('-------------------------------------')
+camion2 = leer_camion('/mnt/d/programacion-I-unsam/codigo/data/camion2.csv')
+
+tenencias2 = Counter()
+
+for s in camion2:
+    
+    tenencias2[s['nombre']] += s['cajones']
+print('-------------------------------------')
+print(tenencias2)
+print('-------------------------------------')
+print(tenencias2.most_common(3))
+print('-------------------------------------')
