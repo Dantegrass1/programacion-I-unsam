@@ -31,10 +31,8 @@ def hacer_informe(cajon):
     print(f'{"Fruta":>10s} {"Cajones":>10s} {"Precio":>10s} {"Ganancia":>10s}')
     print('-'*45)
     for fruta, valores in cajon.items():
-        print(f'{fruta:>10s} {valores[0]:>10d} ${valores[1]:>10.2f} {valores[2]:>10.2f}')
+        print(f'{fruta:>10s} {valores[0]:>10d} {valores[1]:>10.2f} {valores[2]:>10.2f}')
     
     return cajon
 
-camion = leer_camion('codigo/data/camion.csv')
-
-print(camion)
+camion = leer_camion('../Data/camion.csv')

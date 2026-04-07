@@ -150,3 +150,24 @@ for columna, valor in pares:
 d = dict(zip(["Nombre"], ["Juan"]))
 
 print(d)
+
+print(f'{nombre:>10s} {cajones:>10d} {precio:>10.2f}')
+
+'''
+d       Entero decimal
+b       Entero binario
+x       Entero hexadecimal
+f       Flotante como [-]m.dddddd
+e       Flotante como [-]m.dddddde+-xx
+g       Flotante, pero con uso selectivo de la notación exponencial E.
+s       Cadenas
+c       Caracter (a partir de un entero, su código)
+'''
+
+
+'''
+:>10d   Entero alineado a la derecha en un campo de 10 caracteres
+:<10d   Entero alineado a la izquierda en un campo de 10 caracteres
+:^10d   Entero centrado en un campo de 10 caracteres
+:0.2f   Flotante con dos dígitos de precisión
+'''
